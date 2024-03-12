@@ -8,7 +8,7 @@ services:
 
   php-worker:
     build:
-      context: php-worker
+      context: docker/php-worker
       dockerfile: Dockerfile
     volumes:
       - ./:/var/www
@@ -22,7 +22,7 @@ services:
 
   php-fpm:
     build:
-      context: php-fpm
+      context: docker/php-fpm
       dockerfile: Dockerfile
     volumes:
       - ./:/var/www
@@ -48,7 +48,7 @@ services:
 
   mysql:
     build:
-      context: ./mysql
+      context: docker/mysql
       dockerfile: Dockerfile
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
